@@ -36,7 +36,9 @@ function installJQ() {
   tar xzf $LP_DIR/src/jq-1.3.tar.gz
   cd jq-1.3
   echo 'Installing JQ'
-  ./configure && make && sudo make install
+  mkdir -p bin
+  ./configure --prefix=/app/vendor/jq && make && make install DESTDIR=/app/vendor/jq
+  ln -s /app/vendor/jq bin/php
   cd ..
 }
 
