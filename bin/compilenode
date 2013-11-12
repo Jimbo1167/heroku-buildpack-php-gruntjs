@@ -32,6 +32,11 @@ function mktmpdir() {
   echo $dir
 }
 
+function installJQ() {
+  curl --silent http://stedolan.github.io/jq/download/linux64/jq -o jq
+  chmod +x jq
+}
+
 function indent() {
   c='s/^/       /'
   case $(uname) in
@@ -201,6 +206,9 @@ echo "Dependencies installed" | indent
 # install dependencies with npm
 echo "-----> Installing grunt dependencies with npm"
 run_grunt_npm "install --production --silent"
+
+echo "-----> Installing Grunt dependencies"
+installJQ
 echo "-----> Running Grunt"
 grunt heroku -v
 echo "Dependencies installed" | indent
