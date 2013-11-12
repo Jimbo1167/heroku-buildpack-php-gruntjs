@@ -38,9 +38,9 @@ function installJQ() {
   echo 'Installing JQ'
   mkdir -p bin
   ./configure --prefix=/app/vendor/jq && make && make install
-  ls /app/vendor/jq
-  ls /app/vendor/jq/bin
-  ln -s /app/vendor/jq/bin/jq bin/jq
+  echo 'inside app/vendor/jq/ ' && ls /app/vendor/jq/
+  echo 'inside app/vendor/jq/bin ' && ls /app/vendor/jq/bin
+  ln -s /app/vendor/jq/bin/jq /bin/jq
   cd ..
 }
 
