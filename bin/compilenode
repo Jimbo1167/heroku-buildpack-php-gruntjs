@@ -40,7 +40,7 @@ function installJQ() {
   ./configure --prefix=/app/vendor/jq && make && make install
   echo 'inside app/vendor/jq/ ' && ls /app/vendor/jq/
   echo 'inside app/vendor/jq/bin ' && ls /app/vendor/jq/bin
-  ln -s /app/vendor/jq/bin/jq /bin/jq
+  export PATH=/app/vendor/jq/bin:$PATH
   cd ..
 }
 
